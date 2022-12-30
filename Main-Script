@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Scythe Hub", "Midnight")
+local Window = Library.CreateLib("Scythe Hub", "DarkTheme")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("Main")
 Section:NewToggle("Auto Collect Orbs", "Auto Collect Orbs", function(v)
@@ -111,7 +111,7 @@ end)
 Section:NewToggle("Auto Collect Gems", "Auto Gen Gems", function(v)
     getgenv().autocollectgems = v
     while true do
-        if not getgenv().autocollectorbs then return end
+        if not getgenv().autocollectgems then return end
         local A_1 = "collectOrb"
     local A_2 = "Gem"
     local A_3 = "City"
@@ -138,6 +138,16 @@ Section:NewToggle("Auto Collect Gems", "Auto Gen Gems", function(v)
     local Event = game:GetService("ReplicatedStorage").rEvents.orbEvent
     Event:FireServer(A_1, A_2, A_3)
         wait(0.00000000000000000000001)
+    end
+end)
+Section:NewToggle("Auto Rebirth", "Auto Rebirth When U Maxed Out Of Level", function(v)
+    getgenv().autorebirth = v
+    while true do
+        if not getgenv().autorebirth then return end
+        local A_1 = "rebirthRequest"
+        local Event = game:GetService("ReplicatedStorage").rEvents.rebirthEvent
+        Event:FireServer(A_1)
+        wait(1,000)
     end
 end)
 Section:NewKeybind("UI Toggle", "Toggle Your UI Of The Script", Enum.KeyCode.RightControl, function()
