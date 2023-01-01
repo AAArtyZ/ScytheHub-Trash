@@ -150,6 +150,31 @@ Section:NewToggle("Auto Rebirth", "Auto Rebirth When U Maxed Out Of Level", func
         wait(1,000)
     end
 end)
+local Tab = Window:NewTab("Teleport")
+local Section = Tab:NewSection("Teleport")
+Section:NewButton("Grass Course", "Level 5", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1550.4871826171875, 34.56851577758789, 87.48204803466797)
+end)
+Section:NewButton("Frost Course", "Level 15", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2022.6805419921875, 0.9336237907409668, 984.478515625)
+end)
+Section:NewButton("Mysterious Cave", "Level 25", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9683.048828125, 59.3068733215332, 3136.626953125)
+end)
+Section:NewButton("Pakour Challenge", "Level 35", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1414.3121337890625, 34.56851577758789, -2058.336669921875)
+end)
+local Tab = Window:NewTab("Visuals")
+local Section = Tab:NewSection("Other Functions")
+Section:NewButton("Rejoin (Bugged Fix)", "Rejoin If You Get Bugged", function()
+    local ts = game:GetService("TeleportService")
+
+    local p = game:GetService("Players").LocalPlayer
+
+ 
+
+    ts:Teleport(game.PlaceId, p)
+end)
 Section:NewKeybind("UI Toggle", "Toggle Your UI Of The Script", Enum.KeyCode.RightControl, function()
 	Library:ToggleUI()
-end)
+end) A
