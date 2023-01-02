@@ -152,6 +152,9 @@ Section:NewToggle("Auto Rebirth", "Auto Rebirth When U Maxed Out Of Level", func
 end)
 local Tab = Window:NewTab("Teleport")
 local Section = Tab:NewSection("Teleport")
+Section:NewButton("Main Island", "", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-579.8372192382812, 4.126889705657959, 388.0509948730469)
+end)
 Section:NewButton("Grass Course", "Level 5", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1550.4871826171875, 34.56851577758789, 87.48204803466797)
 end)
@@ -163,6 +166,63 @@ Section:NewButton("Mysterious Cave", "Level 25", function()
 end)
 Section:NewButton("Pakour Challenge", "Level 35", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1414.3121337890625, 34.56851577758789, -2058.336669921875)
+end)
+local Tab = Window:NewTab("Pets")
+local Section = Tab:NewSection("Pets")
+Section:NewToggle("Auto Hatch Red Eggs", "300 Gems", function(v)
+    getgenv().autohatchre = v
+    while true do
+        if not getgenv().autohatchre then return end
+    local A_1 = "openCrystal"
+    local A_2 = "Red Crystal"
+    local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+    Event:InvokeServer(A_1, A_2)
+        wait(4.2)
+    end
+end)
+Section:NewToggle("Auto Hatch Blue Crystal", "500 Gems", function(v)
+    getgenv().autohatchbl = v
+    while true do
+        if not getgenv().autohatchbl then return end
+    local A_1 = "openCrystal"
+    local A_2 = "Blue Crystal"
+    local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+    Event:InvokeServer(A_1, A_2)
+        wait(4.2)
+    end
+end)
+Section:NewToggle("Auto Hatch Purple Crystal", "1K Gems", function(v)
+    getgenv().autohatchpu = v
+    while true do
+        if not getgenv().autohatchpu then return end
+    local A_1 = "openCrystal"
+    local A_2 = "Purple Crystal"
+    local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+    Event:InvokeServer(A_1, A_2)
+        wait(4.2)
+    end
+end)
+Section:NewToggle("Auto Hatch Yellow Crystal", "1.2 K Gems", function(v)
+    getgenv().autohatchye = v
+    while true do
+        if not getgenv().autohatchye then return end
+    local A_1 = "openCrystal"
+    local A_2 = "Yellow Crystal"
+    local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+    Event:InvokeServer(A_1, A_2)
+        wait(4.2)
+    end
+end)
+Section:NewToggle("Auto Hatch Lightning Crystal", "2.5 K Gems", function(v)
+    getgenv().autohatchli = v
+    while true do
+        if not getgenv().autohatchli then return end
+    local A_1 = "openCrystal"
+    local A_2 = "Lightning Crystal"
+    local Event = game:GetService("ReplicatedStorage").rEvents.openCrystalRemote
+    Event:InvokeServer(A_1, A_2)
+        wait(4.2)
+    end
 end)
 local Tab = Window:NewTab("Visuals")
 local Section = Tab:NewSection("Other Functions")
@@ -177,4 +237,4 @@ Section:NewButton("Rejoin (Bugged Fix)", "Rejoin If You Get Bugged", function()
 end)
 Section:NewKeybind("UI Toggle", "Toggle Your UI Of The Script", Enum.KeyCode.RightControl, function()
 	Library:ToggleUI()
-end) A
+end)
